@@ -4,15 +4,15 @@ package edu.example.express.controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import edu.example.express.entity.dto.ResultBean;
-import edu.example.express.service.UserService;
-import edu.example.express.entity.User;
+import edu.example.express.service.SystemAdministratorService;
+import edu.example.express.entity.SystemAdministrator;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 
 /**
  * <p>
- * 用户 前端控制器
+ * 系统远离员 前端控制器
  * </p>
  *
  * @author csk
@@ -20,12 +20,12 @@ import javax.annotation.Resource;
  * @version v1.0
  */
 @RestController
-@RequestMapping("/express/api/user")
+@RequestMapping("/express/api/system-administrator")
 @CrossOrigin(origins = "*")
-public class UserController {
+public class SystemAdministratorController {
 
     @Resource
-    private UserService userService;
+    private SystemAdministratorService systemAdministratorService;
 
     /**
     * 查询分页数据
@@ -34,7 +34,7 @@ public class UserController {
     public ResultBean<?> listByPage(@RequestParam(name = "page", defaultValue = "1") int page,
                                     @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
                                     @RequestParam(name = "factor", defaultValue = "") String factor) {
-        return new ResultBean<>(userService.listUsersByPage(page, pageSize,factor));
+        return new ResultBean<>(systemAdministratorService.listSystemAdministratorsByPage(page, pageSize,factor));
     }
 
 
@@ -43,15 +43,15 @@ public class UserController {
     */
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResultBean<?> getById(@PathVariable("id") Integer id) {
-        return new ResultBean<>(userService.getUserById(id));
+        return new ResultBean<>(systemAdministratorService.getSystemAdministratorById(id));
     }
 
     /**
     * 新增
     */
     @RequestMapping(method = RequestMethod.POST)
-    public ResultBean<?> insert(@RequestBody User user) {
-        return new ResultBean<>(userService.insertUser(user));
+    public ResultBean<?> insert(@RequestBody SystemAdministrator systemAdministrator) {
+        return new ResultBean<>(systemAdministratorService.insertSystemAdministrator(systemAdministrator));
     }
 
     /**
@@ -59,14 +59,14 @@ public class UserController {
     */
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
     public ResultBean<?> deleteById(@PathVariable("id") Integer id) {
-        return new ResultBean<>(userService.deleteUserById(id));
+        return new ResultBean<>(systemAdministratorService.deleteSystemAdministratorById(id));
     }
 
     /**
     * 修改
     */
     @RequestMapping(method = RequestMethod.PUT)
-    public ResultBean<?> updateById(@RequestBody User user) {
-        return new ResultBean<>(userService.updateUser(user));
+    public ResultBean<?> updateById(@RequestBody SystemAdministrator systemAdministrator) {
+        return new ResultBean<>(systemAdministratorService.updateSystemAdministrator(systemAdministrator));
     }
 }

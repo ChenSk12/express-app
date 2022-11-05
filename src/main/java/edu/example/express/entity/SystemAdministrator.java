@@ -2,7 +2,6 @@ package edu.example.express.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
@@ -11,7 +10,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 用户
+ * 系统远离员
  * </p>
  *
  * @author csk
@@ -20,37 +19,23 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class User extends Model<User> {
+public class SystemAdministrator extends Model<SystemAdministrator> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "user_id", type = IdType.AUTO)
-    private Integer userId;
+    @TableId(value = "system_administrator_id", type = IdType.AUTO)
+    private Integer systemAdministratorId;
 
-    private String email;
+    private String account;
 
     private String password;
 
-    private String username;
-
-    private LocalDate registerDate;
-
-    private String province;
-
-    private String municipal;
-
-    private String country;
-
-    private String street;
-
-    private String detailAddress;
-
-    private String phoneNumber;
+    private String nickname;
 
 
     @Override
     protected Serializable pkVal() {
-        return this.userId;
+        return this.systemAdministratorId;
     }
 
 }

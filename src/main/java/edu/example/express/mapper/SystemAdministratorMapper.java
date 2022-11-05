@@ -1,6 +1,6 @@
 package edu.example.express.mapper;
 
-import edu.example.express.entity.User;
+import edu.example.express.entity.SystemAdministrator;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 /**
 * <p>
-* 用户 Mapper 接口
+* 系统远离员 Mapper 接口
 * </p>
 *
 * @author csk
@@ -16,6 +16,6 @@ import org.springframework.stereotype.Repository;
 */
 @Mapper
 @Repository
-public interface UserMapper extends BaseMapper<User> {
+public interface SystemAdministratorMapper extends BaseMapper<SystemAdministrator> {
 
 }
