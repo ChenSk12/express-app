@@ -21,6 +21,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/express/api/v1/user")
+@CrossOrigin(origins = "*")
 public class UserController {
 
     @Resource
